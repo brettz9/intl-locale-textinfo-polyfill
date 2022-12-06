@@ -1,65 +1,50 @@
-# rtl-detect
-[![Build Status](https://travis-ci.org/shadiabuhilal/rtl-detect.svg)](https://travis-ci.org/shadiabuhilal/rtl-detect)
+# intl-locale-textinfo-polyfill
 
 This library will help you to detect if the locale is right-to-left language or not.
 
+It implements part of this now Stage 3 [intl-locale-info proposal](https://github.com/tc39/proposal-intl-locale-info).
 
+The library has begun as a fork of [rtl-detect](https://github.com/shadiabuhilal/rtl-detect),
+but it strives to adhere to the `Intl.Locale` (`textInfo`) proposal (notably,
+locales with underscores as in the form `en_US` are not accepted).
 
 ## Usage
 
-### require rtl-detect lib
+### import the library as a ponyfill
+
 ```js
-var rtlDetect = require('rtl-detect');
+import Locale from 'intl-locale-textinfo-polyfill';
+
+const { direction } = new Locale('he').textInfo;
+// "rtl"
 ```
 
-### isRtlLang
-This function will check if the locale is right-to-left language or not.
+### import the library as a polyfill
+
+```js
+import 'intl-locale-textinfo-polyfill/lib/polyfill.js';
+
+const { direction } = new Intl.Locale('he').textInfo;
+// `direction` will be "rtl"
+```
+
+### Intl.Locale#textInfo
+
+This returns an object with the language direction for the locale.
 
 Examples:
 
 ```js
-var isRtl = rtlDetect.isRtlLang('ar-JO');
-// isRtl will be true
+const { direction } = new Intl.Locale('ar-JO').textInfo;
+// `direction` will be "rtl"
 ```
 
 ```js
-var isRtl = rtlDetect.isRtlLang('ar_JO');
-// isRtl will be true
+const { direction } = new Intl.Locale('ar').textInfo;
+// `direction` will be "rtl"
 ```
 
 ```js
-var isRtl = rtlDetect.isRtlLang('ar');
-// isRtl will be true
+const { direction } = new Intl.Locale('en-US')).textInfo;
+// `direction` will be "ltr"
 ```
-
-```js
-var isRtl = rtlDetect.isRtlLang('en-US');
-// isRtl will be false
-```
-
-### getLangDir
-This function will get language direction for the locale.
-
-Examples:
-
-```js
-var langDir = rtlDetect.getLangDir('ar-JO');
-// langDir will be 'rtl'
-```
-
-```js
-var langDir = rtlDetect.getLangDir('ar_JO');
-// langDir will be 'rtl'
-```
-
-```js
-var langDir = rtlDetect.getLangDir('ar');
-// langDir will be 'rtl'
-```
-
-```js
-var langDir = rtlDetect.getLangDir('en-US');
-// langDir will be 'ltr'
-```
-
-Copyright 2015, Yahoo! Inc.

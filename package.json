@@ -1,22 +1,25 @@
 {
-  "name": "rtl-detect",
-  "version": "1.0.4",
+  "name": "intl-locale-textinfo-polyfill",
+  "version": "1.0.0",
   "description": "Library will help you to detect if the locale is right-to-left language.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "open": "open http://localhost:8087/test",
+    "start": "static -p 8087",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "jest --coverage"
-  },
-  "jest": {
-    "verbose": true
+    "mocha": "mocha --require test/node-bootstrap.js --require chai/register-expect.js test/**/*.js test/*.js",
+    "c8": "c8 npm run mocha",
+    "test": "npm run c8"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadiabuhilal/rtl-detect.git"
+    "url": "https://github.com/brettz9/intl-locale-textinfo-polyfill.git"
   },
   "keywords": [
-    "rtl-detect",
+    "intl-locale",
+    "intl",
     "rtl-detect",
     "locale direction",
     "locale dir",
@@ -30,20 +33,19 @@
     "ltr",
     "intl-lang"
   ],
-  "author": "Shadi Abu Hilal <shadiabuhilal@gmail.com> (http://github.com/shadiabuhilal)",
-  "license": "BSD-3-Clause",
-  "homepage": "https://github.com/shadiabuhilal/rtl-detect",
-  "bugs": {
-    "url": "https://github.com/shadiabuhilal/rtl-detect/issues"
-  },
-  "licenses": [
-    {
-      "type": "BSD-3-Clause",
-      "url": "https://github.com/shadiabuhilal/rtl-detect/blob/master/LICENSE.md"
-    }
+  "author": "Brett Zamir",
+  "contributors": [
+    "Shadi Abu Hilal <shadiabuhilal@gmail.com> (http://github.com/shadiabuhilal)"
   ],
+  "homepage": "https://github.com/brettz9/intl-locale-textinfo-polyfill",
+  "bugs": "https://github.com/brettz9/intl-locale-textinfo-polyfill/issues",
+  "license": "BSD-3-Clause",
+  "dependencies": {},
   "devDependencies": {
+    "@brettz9/node-static": "^0.1.1",
+    "c8": "^7.12.0",
+    "chai": "^4.3.7",
     "eslint": "^7.26.0",
-    "jest": "^26.6.3"
+    "mocha": "^10.1.0"
   }
 }

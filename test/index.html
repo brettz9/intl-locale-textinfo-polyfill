@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Intl.Locale polyfill testing</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+
+    <!-- Testing dependencies -->
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+
+  </head>
+  <body>
+    <h1>Intl.Locale Test Suite</h1>
+    <div id="mocha"></div>
+    <script type="module">
+    /* globals mocha -- No ESM */
+    mocha.setup('bdd');
+    window.expect = chai.expect;
+    </script>
+    <script type="module" src="index.spec.js"></script>
+    <script type="module" src="lib/Locale-private.spec.js"></script>
+    <script type="module" src="lib/Locale-public.spec.js"></script>
+    <script type="module">
+    /* globals mocha -- No ESM */
+    mocha.run();
+    </script>
+    </body>
+</html>
