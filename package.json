@@ -1,6 +1,6 @@
 {
   "name": "intl-locale-textinfo-polyfill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library will help you to detect if the locale is right-to-left language.",
   "main": "index.js",
   "type": "module",

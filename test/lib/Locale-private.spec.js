@@ -135,6 +135,7 @@ describe('Intl.Locale', function () {
         'mzn',
         'nqo',
         'pnb',
+        'prs',
         'ps',
         'sd',
         'ug',
