@@ -1,5 +1,11 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## 2.0.1
+
+- fix: clarify regex and allow variation segment
+- fix: add missing items; remove Kurdish (most likely script is Latin)
+- fix: RTL scripts
+
 ## 2.0.0
 
 - fix: add types
