@@ -2,6 +2,8 @@ const aCode = 'a'.charCodeAt();
 const zCode = 'z'.charCodeAt();
 
 const codes = [];
+const scripts = [];
+
 for (let i = aCode; i <= zCode; i++) {
   for (let j = aCode; j <= zCode; j++) {
     try {
@@ -38,7 +40,29 @@ for (let i = aCode; i <= zCode; i++) {
       }
       catch (err) {
       }
+
+      for (let l = aCode; l <= zCode; l++) {
+        try {
+          const code = String.fromCharCode(i) +
+            String.fromCharCode(j) +
+            String.fromCharCode(k) +
+            String.fromCharCode(l);
+          const dir = new Intl.Locale(
+            'en-' + code
+          ).textInfo.direction; // .getTextInfo().direction;
+          if (dir === 'rtl') {
+            scripts.push(code);
+          }
+          else if (dir !== 'ltr') {
+            console.error('dir', dir);
+            throw new Error('What?');
+          }
+        }
+        catch (err) {
+        }
+      }
     }
   }
 }
 console.log('codes', codes);
+console.log('scripts', scripts);

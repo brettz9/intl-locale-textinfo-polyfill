@@ -38,6 +38,10 @@ describe('index', function () {
     expect(new Intl.Locale('ar-jo').textInfo.direction).to.equal('rtl');
 
     expect(new Intl.Locale('ar-JO').textInfo.direction).to.equal('rtl');
+
+    expect(new Intl.Locale('ku-Arab').textInfo.direction).to.equal('rtl');
+
+    expect(new Intl.Locale('ku-Latn').textInfo.direction).to.equal('ltr');
   });
 
   it('throws on invalid locales', function () {

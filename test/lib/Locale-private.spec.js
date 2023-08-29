@@ -93,29 +93,40 @@ describe('Intl.Locale', function () {
 
       expect(Intl.Locale._parseLocale('en')).to.deep.equal({
         lang: 'en',
-        countryCode: undefined
+        countryCode: undefined,
+        script: undefined
       });
 
       expect(Intl.Locale._parseLocale('en-US')).to.deep.equal({
         lang: 'en',
-        countryCode: 'US'
+        countryCode: 'US',
+        script: undefined
       });
 
       expect(Intl.Locale._parseLocale('en-us')).to.deep.equal({
         lang: 'en',
-        countryCode: 'US'
+        countryCode: 'US',
+        script: undefined
       });
 
 
       expect(Intl.Locale._parseLocale('EN-US')).to.deep.equal({
         lang: 'en',
-        countryCode: 'US'
+        countryCode: 'US',
+        script: undefined
       });
 
 
       expect(Intl.Locale._parseLocale('EN-US')).to.deep.equal({
         lang: 'en',
-        countryCode: 'US'
+        countryCode: 'US',
+        script: undefined
+      });
+
+      expect(Intl.Locale._parseLocale('ku-Arab')).to.deep.equal({
+        lang: 'ku',
+        countryCode: undefined,
+        script: 'arab'
       });
     });
 
