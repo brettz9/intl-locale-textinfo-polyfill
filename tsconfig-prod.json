@@ -11,7 +11,7 @@
     "declarationMap": true,
     "strict": true,
     "target": "es6",
-    "outFile": "index.d.ts"
+    "outDir": "dist"
   },
   "include": ["index.js"],
   "exclude": ["node_modules"]

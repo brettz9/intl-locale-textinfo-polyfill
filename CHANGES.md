@@ -1,5 +1,9 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## 2.1.1
+
+- fix: TS index import issue with `outFile`
+
 ## 2.1.0
 
 - fix: force setting of `Intl.Locale` in polyfill

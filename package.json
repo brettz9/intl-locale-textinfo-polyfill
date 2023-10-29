@@ -1,9 +1,10 @@
 {
   "name": "intl-locale-textinfo-polyfill",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Library will help you to detect if the locale is right-to-left language.",
   "main": "./index.js",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "tsc-prod": "tsc -p tsconfig-prod.json",
     "tsc": "tsc",
