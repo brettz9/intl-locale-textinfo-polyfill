@@ -3,6 +3,8 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
+import { expect } from 'chai';
+
 describe('index', function () {
   it('_isRtlLang()', function () {
     expect(new Intl.Locale('en')._isRtlLang()).to.equal(false);
@@ -46,10 +48,12 @@ describe('index', function () {
 
   it('throws on invalid locales', function () {
     expect(() => {
+      // @ts-expect-error Bad args
       new Intl.Locale();
     }).to.throw(TypeError);
 
     expect(() => {
+      // @ts-expect-error Bad args
       new Intl.Locale(null);
     }).to.throw(TypeError);
 

@@ -1,16 +1,17 @@
 {
   "name": "intl-locale-textinfo-polyfill",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Library will help you to detect if the locale is right-to-left language.",
   "main": "./index.js",
   "type": "module",
-  "types": "./index.d.ts",
   "scripts": {
+    "tsc-prod": "tsc -p tsconfig-prod.json",
+    "tsc": "tsc",
     "open": "open http://localhost:8087/test",
     "start": "static -p 8087",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "mocha": "mocha --require test/node-bootstrap.js --require chai/register-expect.js test/**/*.js test/*.js",
+    "mocha": "mocha --require test/node-bootstrap.js test/**/*.js test/*.js",
     "c8": "c8 npm run mocha",
     "test": "npm run c8"
   },
@@ -41,12 +42,14 @@
   "homepage": "https://github.com/brettz9/intl-locale-textinfo-polyfill",
   "bugs": "https://github.com/brettz9/intl-locale-textinfo-polyfill/issues",
   "license": "BSD-3-Clause",
-  "dependencies": {},
   "devDependencies": {
     "@brettz9/node-static": "^0.1.1",
+    "@types/chai": "^4.3.9",
+    "@types/mocha": "^10.0.3",
     "c8": "^7.12.0",
     "chai": "^4.3.7",
     "eslint": "^7.26.0",
-    "mocha": "^10.1.0"
+    "mocha": "^10.1.0",
+    "typescript": "^5.2.2"
   }
 }

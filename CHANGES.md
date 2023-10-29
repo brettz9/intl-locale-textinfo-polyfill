@@ -1,5 +1,9 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## 2.0.2
+
+- fix: TS types
+
 ## 2.0.1
 
 - fix: clarify regex and allow variation segment

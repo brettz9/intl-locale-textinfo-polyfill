@@ -3,6 +3,8 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
+import { expect } from 'chai';
+
 describe('Intl.Locale', function () {
 
   describe('private', function () {
