@@ -1,5 +1,9 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## 2.1.0
+
+- fix: force setting of `Intl.Locale` in polyfill
+
 ## 2.0.2
 
 - fix: TS types
