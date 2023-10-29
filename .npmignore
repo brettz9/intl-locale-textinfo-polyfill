@@ -11,3 +11,6 @@ lcov-*
 xunit*
 /test/
 /__tests__/
+tsconfig.json
+tsconfig-prod.json
+build-codes.js
