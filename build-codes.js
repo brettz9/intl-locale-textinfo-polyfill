@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- Ok */
 const aCode = 'a'.charCodeAt();
 const zCode = 'z'.charCodeAt();
 
