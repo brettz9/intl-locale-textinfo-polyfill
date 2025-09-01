@@ -1,5 +1,9 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## ?
+
+- chore: update devDeps.
+
 ## 2.1.1
 
 - fix: TS index import issue with `outFile`
