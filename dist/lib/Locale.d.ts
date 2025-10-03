@@ -9,18 +9,18 @@ declare class Locale {
      * @param {string|null} [str]
      * @param {boolean} [reserveReturnValue]
      */
-    static _toLowerCase(str?: string | null | undefined, reserveReturnValue?: boolean | undefined): string | false | null | undefined;
+    static _toLowerCase(str?: string | null, reserveReturnValue?: boolean): string | false | null | undefined;
     /**
      * @param {string|null} [str]
      * @param {boolean} [reserveReturnValue]
      */
-    static _toUpperCase(str?: string | null | undefined, reserveReturnValue?: boolean | undefined): string | false | null | undefined;
+    static _toUpperCase(str?: string | null, reserveReturnValue?: boolean): string | false | null | undefined;
     /**
      * @param {string|null} [str]
      * @param {string|null|string[]|boolean} [delimiter]
      * @param {boolean} [reserveReturnValue]
      */
-    static _trim(str?: string | null | undefined, delimiter?: string | boolean | string[] | null | undefined, reserveReturnValue?: boolean | undefined): string | null | undefined;
+    static _trim(str?: string | null, delimiter?: string | null | string[] | boolean, reserveReturnValue?: boolean): string | null | undefined;
     /**
      * @typedef {{
      *   lang: string,
@@ -32,18 +32,18 @@ declare class Locale {
      * @param {string|null} [strLocale]
      * @returns {undefined|LocaleInfo}
      */
-    static _parseLocale(strLocale?: string | null | undefined): {
+    static _parseLocale(strLocale?: string | null): undefined | {
         lang: string;
         script: string | undefined;
         countryCode: string | undefined;
-    } | undefined;
+    };
     /**
      * @param {string} locale
      */
     constructor(locale: string);
     _locale: string;
     _isRtlLang(): boolean;
-    get textInfo(): {
+    getTextInfo(): {
         direction: string;
     };
 }

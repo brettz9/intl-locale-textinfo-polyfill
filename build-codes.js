@@ -12,7 +12,7 @@ for (let i = aCode; i <= zCode; i++) {
         String.fromCharCode(j);
       const dir = new Intl.Locale(
         code
-      ).textInfo.direction; // .getTextInfo().direction;
+      ).getTextInfo().direction;
       if (dir === 'rtl') {
         codes.push(code);
       }
@@ -30,7 +30,7 @@ for (let i = aCode; i <= zCode; i++) {
           String.fromCharCode(k);
         const dir = new Intl.Locale(
           code
-        ).textInfo.direction; // .getTextInfo().direction;
+        ).getTextInfo().direction;
         if (dir === 'rtl') {
           codes.push(code);
         }
@@ -50,7 +50,7 @@ for (let i = aCode; i <= zCode; i++) {
             String.fromCharCode(l);
           const dir = new Intl.Locale(
             'en-' + code
-          ).textInfo.direction; // .getTextInfo().direction;
+          ).getTextInfo().direction;
           if (dir === 'rtl') {
             scripts.push(code);
           }

@@ -5,7 +5,7 @@ This library will help you to detect if the locale is right-to-left language or 
 It implements part of this now Stage 3 [intl-locale-info proposal](https://github.com/tc39/proposal-intl-locale-info).
 
 The library has begun as a fork of [rtl-detect](https://github.com/shadiabuhilal/rtl-detect),
-but it strives to adhere to the `Intl.Locale` (`textInfo`) proposal (notably,
+but it strives to adhere to the `Intl.Locale` (`getTextInfo()`) proposal (notably,
 locales with underscores as in the form `en_US` are not accepted).
 
 ## Usage
@@ -15,7 +15,7 @@ locales with underscores as in the form `en_US` are not accepted).
 ```js
 import Locale from 'intl-locale-textinfo-polyfill';
 
-const { direction } = new Locale('he').textInfo;
+const { direction } = new Locale('he').getTextInfo();
 // "rtl"
 ```
 
@@ -24,27 +24,27 @@ const { direction } = new Locale('he').textInfo;
 ```js
 import 'intl-locale-textinfo-polyfill/lib/polyfill.js';
 
-const { direction } = new Intl.Locale('he').textInfo;
+const { direction } = new Intl.Locale('he').getTextInfo();
 // `direction` will be "rtl"
 ```
 
-### Intl.Locale#textInfo
+### Intl.Locale#getTextInfo()
 
 This returns an object with the language direction for the locale.
 
 Examples:
 
 ```js
-const { direction } = new Intl.Locale('ar-JO').textInfo;
+const { direction } = new Intl.Locale('ar-JO').getTextInfo();
 // `direction` will be "rtl"
 ```
 
 ```js
-const { direction } = new Intl.Locale('ar').textInfo;
+const { direction } = new Intl.Locale('ar').getTextInfo();
 // `direction` will be "rtl"
 ```
 
 ```js
-const { direction } = new Intl.Locale('en-US')).textInfo;
+const { direction } = new Intl.Locale('en-US').getTextInfo();
 // `direction` will be "ltr"
 ```

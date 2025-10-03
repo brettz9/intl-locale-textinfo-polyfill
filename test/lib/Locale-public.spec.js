@@ -24,26 +24,26 @@ describe('index', function () {
     expect(new Intl.Locale('ar-JO')._isRtlLang()).to.equal(true);
   });
 
-  it('textInfo.direction', function () {
-    expect(new Intl.Locale('en').textInfo.direction).to.equal('ltr');
+  it('getTextInfo().direction', function () {
+    expect(new Intl.Locale('en').getTextInfo().direction).to.equal('ltr');
 
-    expect(new Intl.Locale('EN').textInfo.direction).to.equal('ltr');
+    expect(new Intl.Locale('EN').getTextInfo().direction).to.equal('ltr');
 
-    expect(new Intl.Locale('en-US').textInfo.direction).to.equal('ltr');
+    expect(new Intl.Locale('en-US').getTextInfo().direction).to.equal('ltr');
 
-    expect(new Intl.Locale('en-us').textInfo.direction).to.equal('ltr');
+    expect(new Intl.Locale('en-us').getTextInfo().direction).to.equal('ltr');
 
-    expect(new Intl.Locale('ar').textInfo.direction).to.equal('rtl');
+    expect(new Intl.Locale('ar').getTextInfo().direction).to.equal('rtl');
 
-    expect(new Intl.Locale('AR').textInfo.direction).to.equal('rtl');
+    expect(new Intl.Locale('AR').getTextInfo().direction).to.equal('rtl');
 
-    expect(new Intl.Locale('ar-jo').textInfo.direction).to.equal('rtl');
+    expect(new Intl.Locale('ar-jo').getTextInfo().direction).to.equal('rtl');
 
-    expect(new Intl.Locale('ar-JO').textInfo.direction).to.equal('rtl');
+    expect(new Intl.Locale('ar-JO').getTextInfo().direction).to.equal('rtl');
 
-    expect(new Intl.Locale('ku-Arab').textInfo.direction).to.equal('rtl');
+    expect(new Intl.Locale('ku-Arab').getTextInfo().direction).to.equal('rtl');
 
-    expect(new Intl.Locale('ku-Latn').textInfo.direction).to.equal('ltr');
+    expect(new Intl.Locale('ku-Latn').getTextInfo().direction).to.equal('ltr');
   });
 
   it('throws on invalid locales', function () {
