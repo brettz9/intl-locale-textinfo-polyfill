@@ -5,127 +5,131 @@
 
 import { expect } from 'chai';
 
+import Locale from '../../lib/Locale.js';
+
+// The internal helpers live on the concrete implementation class, not on the
+// standard `Intl.Locale` surface, so exercise them directly here.
 describe('Intl.Locale', function () {
 
   describe('private', function () {
     it('_escapeRegExpPattern()', function () {
-      expect(Intl.Locale._escapeRegExpPattern()).to.equal(undefined);
+      expect(Locale._escapeRegExpPattern()).to.equal(undefined);
 
-      expect(Intl.Locale._escapeRegExpPattern(null)).to.equal(null);
+      expect(Locale._escapeRegExpPattern(null)).to.equal(null);
 
-      expect(Intl.Locale._escapeRegExpPattern('')).to.equal('');
+      expect(Locale._escapeRegExpPattern('')).to.equal('');
 
-      expect(Intl.Locale._escapeRegExpPattern(' ')).to.equal(' ');
+      expect(Locale._escapeRegExpPattern(' ')).to.equal(' ');
 
-      expect(Intl.Locale._escapeRegExpPattern('[CODE]')).to.equal('\\[CODE\\]');
+      expect(Locale._escapeRegExpPattern('[CODE]')).to.equal('\\[CODE\\]');
 
-      expect(Intl.Locale._escapeRegExpPattern('.*+^$[]()|{},-:?\\')).to.equal('\\.\\*\\+\\^\\$\\[\\]\\(\\)\\|\\{\\}\\,\\-\\:\\?\\\\');
+      expect(Locale._escapeRegExpPattern('.*+^$[]()|{},-:?\\')).to.equal('\\.\\*\\+\\^\\$\\[\\]\\(\\)\\|\\{\\}\\,\\-\\:\\?\\\\');
     });
 
     it('_toLowerCase()', function () {
-      expect(Intl.Locale._toLowerCase()).to.equal(undefined);
+      expect(Locale._toLowerCase()).to.equal(undefined);
 
-      expect(Intl.Locale._toLowerCase(null)).to.equal(undefined);
-      expect(Intl.Locale._toLowerCase(null, true)).to.equal(null);
+      expect(Locale._toLowerCase(null)).to.equal(undefined);
+      expect(Locale._toLowerCase(null, true)).to.equal(null);
 
-      expect(Intl.Locale._toLowerCase('')).to.equal('');
+      expect(Locale._toLowerCase('')).to.equal('');
 
-      expect(Intl.Locale._toLowerCase(' ')).to.equal(' ');
+      expect(Locale._toLowerCase(' ')).to.equal(' ');
 
-      expect(Intl.Locale._toLowerCase('Test Code')).to.equal('test code');
+      expect(Locale._toLowerCase('Test Code')).to.equal('test code');
 
-      expect(Intl.Locale._toLowerCase('TEST CODE')).to.equal('test code');
+      expect(Locale._toLowerCase('TEST CODE')).to.equal('test code');
 
-      expect(Intl.Locale._toLowerCase('test code')).to.equal('test code');
+      expect(Locale._toLowerCase('test code')).to.equal('test code');
     });
 
     it('_toUpperCase()', function () {
-      expect(Intl.Locale._toUpperCase()).to.equal(undefined);
+      expect(Locale._toUpperCase()).to.equal(undefined);
 
-      expect(Intl.Locale._toUpperCase(null)).to.equal(undefined);
-      expect(Intl.Locale._toUpperCase(null, true)).to.equal(null);
+      expect(Locale._toUpperCase(null)).to.equal(undefined);
+      expect(Locale._toUpperCase(null, true)).to.equal(null);
 
-      expect(Intl.Locale._toUpperCase('')).to.equal('');
+      expect(Locale._toUpperCase('')).to.equal('');
 
-      expect(Intl.Locale._toUpperCase(' ')).to.equal(' ');
+      expect(Locale._toUpperCase(' ')).to.equal(' ');
 
-      expect(Intl.Locale._toUpperCase('Test Code')).to.equal('TEST CODE');
+      expect(Locale._toUpperCase('Test Code')).to.equal('TEST CODE');
 
-      expect(Intl.Locale._toUpperCase('TEST CODE')).to.equal('TEST CODE');
+      expect(Locale._toUpperCase('TEST CODE')).to.equal('TEST CODE');
 
-      expect(Intl.Locale._toUpperCase('test code')).to.equal('TEST CODE');
+      expect(Locale._toUpperCase('test code')).to.equal('TEST CODE');
     });
 
     it('_trim()', function () {
-      expect(Intl.Locale._trim()).to.equal(undefined);
-      expect(Intl.Locale._trim(undefined, '-')).to.equal(undefined);
+      expect(Locale._trim()).to.equal(undefined);
+      expect(Locale._trim(undefined, '-')).to.equal(undefined);
 
-      expect(Intl.Locale._trim(null)).to.equal(undefined);
-      expect(Intl.Locale._trim(null, '-')).to.equal(undefined);
-      expect(Intl.Locale._trim(null, true)).to.equal(null);
-      expect(Intl.Locale._trim(null, '-', true)).to.equal(null);
+      expect(Locale._trim(null)).to.equal(undefined);
+      expect(Locale._trim(null, '-')).to.equal(undefined);
+      expect(Locale._trim(null, true)).to.equal(null);
+      expect(Locale._trim(null, '-', true)).to.equal(null);
 
-      expect(Intl.Locale._trim('')).to.equal('');
-      expect(Intl.Locale._trim('', '-')).to.equal('');
+      expect(Locale._trim('')).to.equal('');
+      expect(Locale._trim('', '-')).to.equal('');
 
-      expect(Intl.Locale._trim(' ')).to.equal('');
+      expect(Locale._trim(' ')).to.equal('');
 
-      expect(Intl.Locale._trim('-', '-')).to.equal('');
+      expect(Locale._trim('-', '-')).to.equal('');
 
-      expect(Intl.Locale._trim('  TRIM CODE  ')).to.equal('TRIM CODE');
+      expect(Locale._trim('  TRIM CODE  ')).to.equal('TRIM CODE');
 
-      expect(Intl.Locale._trim('-TRIM-CODE-', '-')).to.equal('TRIM-CODE');
+      expect(Locale._trim('-TRIM-CODE-', '-')).to.equal('TRIM-CODE');
 
-      expect(Intl.Locale._trim('-_TRIM-_CODE_-', ['-', '_'])).to.equal('TRIM-_CODE');
+      expect(Locale._trim('-_TRIM-_CODE_-', ['-', '_'])).to.equal('TRIM-_CODE');
     });
 
     it('_parseLocale()', function () {
-      expect(Intl.Locale._parseLocale()).to.equal(undefined);
+      expect(Locale._parseLocale()).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale(null)).to.equal(undefined);
+      expect(Locale._parseLocale(null)).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale('')).to.equal(undefined);
+      expect(Locale._parseLocale('')).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale(' ')).to.equal(undefined);
+      expect(Locale._parseLocale(' ')).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale('1234')).to.equal(undefined);
-      expect(Intl.Locale._parseLocale('1a2B3c4')).to.equal(undefined);
+      expect(Locale._parseLocale('1234')).to.equal(undefined);
+      expect(Locale._parseLocale('1a2B3c4')).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale('en_US')).to.equal(undefined);
+      expect(Locale._parseLocale('en_US')).to.equal(undefined);
 
-      expect(Intl.Locale._parseLocale('en')).to.deep.equal({
+      expect(Locale._parseLocale('en')).to.deep.equal({
         lang: 'en',
         countryCode: undefined,
         script: undefined
       });
 
-      expect(Intl.Locale._parseLocale('en-US')).to.deep.equal({
+      expect(Locale._parseLocale('en-US')).to.deep.equal({
         lang: 'en',
         countryCode: 'US',
         script: undefined
       });
 
-      expect(Intl.Locale._parseLocale('en-us')).to.deep.equal({
-        lang: 'en',
-        countryCode: 'US',
-        script: undefined
-      });
-
-
-      expect(Intl.Locale._parseLocale('EN-US')).to.deep.equal({
+      expect(Locale._parseLocale('en-us')).to.deep.equal({
         lang: 'en',
         countryCode: 'US',
         script: undefined
       });
 
 
-      expect(Intl.Locale._parseLocale('EN-US')).to.deep.equal({
+      expect(Locale._parseLocale('EN-US')).to.deep.equal({
         lang: 'en',
         countryCode: 'US',
         script: undefined
       });
 
-      expect(Intl.Locale._parseLocale('ku-Arab')).to.deep.equal({
+
+      expect(Locale._parseLocale('EN-US')).to.deep.equal({
+        lang: 'en',
+        countryCode: 'US',
+        script: undefined
+      });
+
+      expect(Locale._parseLocale('ku-Arab')).to.deep.equal({
         lang: 'ku',
         countryCode: undefined,
         script: 'arab'
@@ -134,7 +138,7 @@ describe('Intl.Locale', function () {
 
     it('_BIDI_RTL_LANGS', function () {
 
-      expect(Intl.Locale._BIDI_RTL_LANGS).to.deep.equal([
+      expect(Locale._BIDI_RTL_LANGS).to.deep.equal([
         'ae',
         'aeb',
         'ajt',

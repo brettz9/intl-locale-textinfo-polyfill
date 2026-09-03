@@ -1,5 +1,10 @@
 # CHANGES for `intl-locale-textinfo-polyfill`
 
+## 3.0.1
+
+- fix: repair type checking, declaration output, and packaging
+- chore: update devDeps; add attw, switch to @node-static/node-static
+
 ## 3.0.0
 
 - feat: update as per latest API (`textinfo` -> `getTextInfo()`)

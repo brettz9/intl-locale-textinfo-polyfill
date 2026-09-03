@@ -14,3 +14,6 @@ xunit*
 tsconfig.json
 tsconfig-prod.json
 build-codes.js
+eslint.config.js
+pnpm-workspace.yaml
+pnpm-lock.yaml
